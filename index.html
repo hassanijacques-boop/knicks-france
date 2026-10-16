@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knicks France — actualité, effectif, blessures, classement et insiders</title>
+<meta name="description" content="Actualité des New York Knicks en français : effectif, blessures, classement Est, insiders. Sources américaines citées et évaluées.">
+<link rel="icon" href="https://a.espncdn.com/i/teamlogos/nba/500/ny.png">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bleu:#1d428a;--orange:#f58426;--b2:#2a5bb5;--fond:#080a10}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;background:var(--fond);color:#eef2f8;line-height:1.6}
+.halo{position:fixed;border-radius:50%;filter:blur(130px);z-index:0;pointer-events:none}
+.h1{width:600px;height:600px;background:var(--bleu);opacity:.35;top:-220px;left:-160px}
+.h2{width:520px;height:520px;background:var(--orange);opacity:.2;top:100px;right:-180px}
+.wrap{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:0 22px 80px}
+.bandeau{background:linear-gradient(100deg,var(--bleu),var(--orange));padding:9px 22px;text-align:center;font-size:13px;font-weight:600;margin:0 -22px}
+nav{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;padding:18px 0 0}
+nav a{font-size:13px;padding:8px 16px;border-radius:999px;border:1px solid #ffffff17;background:#ffffff09;color:#ffffffab;text-decoration:none;transition:.25s}
+nav a:hover{background:#ffffff18;color:#fff;border-color:#f5842655}
+header{padding:40px 0 30px;text-align:center}
+.marque{display:flex;align-items:center;gap:17px;justify-content:center;flex-wrap:wrap}
+.marque img{width:82px;height:82px;object-fit:contain;filter:drop-shadow(0 10px 26px #1d428a99)}
+h1{font-size:clamp(28px,5vw,46px);font-weight:800;letter-spacing:-.035em}
+h1 b{background:linear-gradient(100deg,var(--b2),var(--orange));-webkit-background-clip:text;background-clip:text;color:transparent}
+.tag{color:#ffffff70;margin-top:13px;font-size:15px} .tag strong{color:var(--orange)}
+.fiche{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:13px;margin:26px 0 46px}
+.f{background:#ffffff09;border:1px solid #ffffff14;border-radius:16px;padding:17px}
+.f .lbl{font-size:10.5px;text-transform:uppercase;letter-spacing:.14em;color:#ffffff52;margin-bottom:6px}
+.f .val{font-size:16px;font-weight:700} .f .val.o{color:var(--orange)}
+section{margin-bottom:54px;scroll-margin-top:70px}
+h2{font-size:23px;font-weight:760;letter-spacing:-.02em;display:flex;align-items:center;gap:12px;margin-bottom:6px}
+h2 .barre{width:4px;height:25px;border-radius:2px;background:linear-gradient(var(--bleu),var(--orange))}
+.st2{color:#ffffff5c;font-size:13.5px;margin:0 0 22px 16px}
+
+/* ══ VISUEL D'ARTICLE ══ */
+.grille{display:grid;grid-template-columns:repeat(auto-fill,minmax(325px,1fr));gap:17px}
+.actu{background:#ffffff08;border:1px solid #ffffff13;border-radius:19px;overflow:hidden;
+  display:flex;flex-direction:column;transition:.32s}
+.actu:hover{background:#ffffff0e;border-color:#ffffff26;transform:translateY(-4px)}
+.actu-visuel{position:relative;height:132px;background:linear-gradient(135deg,var(--c1),var(--c2));
+  display:grid;place-items:center;overflow:hidden}
+.actu-visuel::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 70% 25%,#ffffff2e,transparent 55%)}
+.actu-icone{font-size:52px;z-index:2;filter:drop-shadow(0 6px 16px #0006)}
+.actu-sujet{position:absolute;left:15px;bottom:11px;z-index:3;font-size:10.5px;font-weight:800;
+  letter-spacing:.11em;text-transform:uppercase;color:#fff;background:#00000042;border-radius:999px;padding:4px 12px;backdrop-filter:blur(8px)}
+.actu-filigrane{position:absolute;right:-22px;top:-22px;width:118px;height:118px;object-fit:contain;opacity:.13;z-index:1}
+.actu-corps{padding:19px;display:flex;flex-direction:column;flex:1}
+.actu-tete{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:11px}
+.source{font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);
+  background:#f584261f;border-radius:999px;padding:4px 11px}
+.notes{font-size:11.5px;color:#f58426cc;letter-spacing:1.5px}
+.actu h3{font-size:16px;line-height:1.42;margin-bottom:9px;font-weight:650}
+.actu h3 a{color:#fff;text-decoration:none} .actu h3 a:hover{color:var(--orange)}
+.badge-en{font-size:9.5px;background:#ffffff1c;color:#ffffff8a;padding:2px 7px;border-radius:5px;vertical-align:middle;font-weight:700}
+.actu p{color:#ffffff6e;font-size:13px;flex:1;margin-bottom:12px}
+.actu-pied{display:flex;justify-content:space-between;gap:10px;border-top:1px solid #ffffff0d;padding-top:11px;font-size:11px;color:#ffffff48}
+.type{text-align:right;flex:1}
+
+/* ══ CLASSEMENT ══ */
+.cl{list-style:none;display:grid;gap:7px}
+.cl li{display:grid;grid-template-columns:26px 26px 1fr 130px 62px 52px;align-items:center;gap:11px;
+  background:#ffffff08;border:1px solid #ffffff12;border-radius:12px;padding:11px 15px;font-size:13.5px}
+.cl li.knick{border-color:#f5842666;background:#f5842614}
+.cl-rang{color:#ffffff52;font-weight:700;font-size:12px;text-align:center}
+.cl-logo{width:24px;height:24px;object-fit:contain}
+.cl-nom{font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cl-barre{height:7px;background:#ffffff0f;border-radius:99px;overflow:hidden}
+.cl-barre i{display:block;height:100%;background:linear-gradient(90deg,var(--bleu),var(--orange));border-radius:99px}
+.cl-bilan{text-align:right;color:#ffffff8a;font-variant-numeric:tabular-nums}
+.cl-pct{text-align:right;color:var(--orange);font-weight:700;font-variant-numeric:tabular-nums}
+
+/* ══ EFFECTIF ══ */
+.equipe{display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:13px}
+.j{display:flex;gap:14px;align-items:center;background:#ffffff08;border:1px solid #ffffff12;border-radius:17px;padding:13px;position:relative;transition:.3s}
+.j:hover{background:#ffffff0e;border-color:#f5842644;transform:translateY(-2px)}
+.j-photo{width:58px;height:58px;border-radius:14px;overflow:hidden;background:#ffffff11;flex:0 0 58px;display:grid;place-items:center}
+.j-photo img{width:100%;height:100%;object-fit:cover} .init{font-size:18px;font-weight:800;color:#ffffff55}
+.j-num{position:absolute;top:9px;right:13px;font-size:12px;font-weight:800;color:#f58426cc}
+.j-corps{flex:1;min-width:0}
+.j-corps h4{font-size:15px;font-weight:700;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.j-poste{font-size:11px;color:#f58426cc;text-transform:uppercase;letter-spacing:.07em;font-weight:650;margin-bottom:6px}
+.j-infos{list-style:none;display:flex;gap:8px;flex-wrap:wrap;font-size:11px;color:#ffffff6b}
+.j-infos li{background:#ffffff0d;border-radius:6px;padding:2px 8px}
+
+/* ══ BLESSURES / SOURCES ══ */
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:#ffffff07;border-radius:15px;overflow:hidden}
+th{text-align:left;padding:13px 16px;background:#ffffff0c;font-size:11px;text-transform:uppercase;letter-spacing:.11em;color:#ffffff66;font-weight:700}
+td{padding:13px 16px;border-top:1px solid #ffffff0d} td.nom{font-weight:700}
+td.st{color:#f58426;letter-spacing:1.5px;white-space:nowrap} td.nb{text-align:center;color:#ffffff5c}
+.st-inj{background:#ef444426;color:#f87171;border-radius:6px;padding:3px 10px;font-size:11.5px;font-weight:700}
+.aucune{text-align:center;color:#4ade80;padding:26px!important}
+
+/* ══ INSIDERS ══ */
+.ins-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(296px,1fr));gap:15px}
+.insider{background:linear-gradient(140deg,#ffffff0c,#ffffff05);border:1px solid #ffffff16;border-radius:18px;padding:21px;display:flex;flex-direction:column;transition:.3s}
+.insider:hover{border-color:#f5842655;transform:translateY(-3px)}
+.ins-tete{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
+.ins-nom{font-size:17px;font-weight:780} .ins-notes{color:#f58426;font-size:12.5px;letter-spacing:1.5px}
+.ins-media{font-size:13px;font-weight:700;color:var(--orange);margin-bottom:10px}
+.ins-spec{font-size:11px;color:#ffffff52;font-weight:500;background:#ffffff0d;border-radius:6px;padding:2px 8px;margin-left:6px}
+.insider p{font-size:13.5px;color:#ffffff78;flex:1;margin-bottom:14px}
+.ins-x{align-self:flex-start;font-size:12.5px;font-weight:700;color:#fff;text-decoration:none;background:#ffffff12;border:1px solid #ffffff1f;border-radius:9px;padding:7px 14px;transition:.25s}
+.ins-x:hover{background:#f58426;border-color:transparent}
+.tl{background:#ffffff07;border:1px solid #ffffff14;border-radius:17px;padding:16px;overflow:hidden}
+.tl-tete{display:flex;justify-content:space-between;align-items:center;margin-bottom:11px}
+.tl-nom{font-weight:700;font-size:14.5px} .tl-media{font-size:11.5px;color:var(--orange);font-weight:650}
+.tl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:15px;margin-bottom:22px}
+
+.methode{background:linear-gradient(135deg,#ffffff0a,#ffffff05);border:1px solid #ffffff14;border-radius:19px;padding:26px;margin-top:24px}
+.methode h3{font-size:16px;margin-bottom:13px;color:var(--orange)}
+.methode ul{list-style:none;display:grid;gap:9px}
+.methode li{font-size:13.5px;color:#ffffff7a;padding-left:22px;position:relative}
+.methode li::before{content:"→";position:absolute;left:0;color:var(--orange)}
+footer{text-align:center;color:#ffffff3a;font-size:12.5px;margin-top:56px;line-height:2;border-top:1px solid #ffffff0d;padding-top:26px}
+</style>
+</head>
+<body>
+<div class="halo h1"></div><div class="halo h2"></div>
+<div class="bandeau">📰 Site d'actualité indépendant — sources citées et évaluées · visuels 100 % originaux</div>
+<div class="wrap">
+<nav><a href="#actus">Actualité</a><a href="#classement">Classement</a><a href="#effectif">Effectif</a>
+<a href="#sante">Santé</a><a href="#insiders">Insiders</a><a href="#matchs">Matchs</a><a href="#sources">Sources</a></nav>
+
+<header>
+  <div class="marque"><img src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="Logo des New York Knicks"><h1>Knicks <b>France</b></h1></div>
+  <p class="tag">Actualité, effectif, blessures, classement et <strong>insiders</strong> des
+     <strong>New York Knicks</strong> — en français, sources américaines évaluées.</p>
+</header>
+
+<div class="fiche">
+  <div class="f"><div class="lbl">Équipe</div><div class="val">New York Knicks</div></div>
+  <div class="f"><div class="lbl">Bilan</div><div class="val o">53-29 (.646)</div></div>
+  <div class="f"><div class="lbl">Salle</div><div class="val">Madison Square Garden</div></div>
+  <div class="f"><div class="lbl">Effectif</div><div class="val">21 joueurs</div></div>
+  <div class="f"><div class="lbl">Collecte</div><div class="val" style="font-size:13.5px">16 octobre 2026 à 16h09</div></div>
+</div>
+
+<section id="actus">
+  <h2><span class="barre"></span>🔥 Actualité</h2>
+  <p class="st2">27 articles · chaque article a son visuel généré automatiquement</p>
+  <div class="grille"><article class="actu">
+      <div class="actu-visuel" style="--c1:#1d428a;--c2:#f58426">
+        <span class="actu-icone">📰</span>
+        <span class="actu-sujet">Actualité</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">ESPN</span>
+          <span class="notes" title="Media sportif international de reference">★★★★★</span>
+        </div>
+        <h3><a href="https://www.espn.com/sports-betting/story/_/id/50185247/nba-betting-one-bet-make-every-team-2026-2027" target="_blank" rel="noopener">Paris NBA : un pari à faire sur chaque équipe avant le début de la saison </a></h3>
+        <p>Don&#x27;t go into the NBA season without knowing which bet to make for every team.</p>
+        <div class="actu-pied"><time>16 octobre 2026 à 10h38</time>
+          <span class="type">Media sportif international de reference</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#f58426;--c2:#7c2d12">
+        <span class="actu-icone">🔄</span>
+        <span class="actu-sujet">Transferts & contrats</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">Posting and Toasting</span>
+          <span class="notes" title="Blog specialise Knicks (SB Nation)">★★★☆☆</span>
+        </div>
+        <h3><a href="https://www.postingandtoasting.com/knicks-news/90053/knicks-bulletin-new-york-will-explore-other-deals-this-weekend-and-monday" target="_blank" rel="noopener">Bulletin des Knicks : « New York explorera d&#x27;autres pistes ce week-end et lundi » </a></h3>
+        <p>No more fake basketball for the next eight months, folks! The Knicks wrapped up the preseason with their most solid performance, defeated the Raps in New York, and will next see the banner(s) rise to </p>
+        <div class="actu-pied"><time>16 octobre 2026 à 10h00</time>
+          <span class="type">Blog specialise Knicks (SB Nation)</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#1d428a;--c2:#0c1e40">
+        <span class="actu-icone">🏀</span>
+        <span class="actu-sujet">Matchs</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">ESPN</span>
+          <span class="notes" title="Media sportif international de reference">★★★★★</span>
+        </div>
+        <h3><a href="https://www.espn.com/video/clip/_/id/50193529/game-highlights" target="_blank" rel="noopener">Toronto Raptors - New York Knicks : les temps forts </a></h3>
+        <p>Toronto Raptors vs. New York Knicks: Game Highlights</p>
+        <div class="actu-pied"><time>16 octobre 2026 à 03h02</time>
+          <span class="type">Media sportif international de reference</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#1d428a;--c2:#f58426">
+        <span class="actu-icone">📰</span>
+        <span class="actu-sujet">Actualité</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">Posting and Toasting</span>
+          <span class="notes" title="Blog specialise Knicks (SB Nation)">★★★☆☆</span>
+        </div>
+        <h3><a href="https://www.postingandtoasting.com/knicks-scores-results/90040/knicks-122-raptors-120-scenes-from-towns-toppling-toronto" target="_blank" rel="noopener">Knicks 122, Raptors 120 : les images de la victoire de Towns face à Toronto </a></h3>
+        <p>Tonight at Madison Square Garden, the Knicks played their final preseason game—a rematch with a Toronto team that clobbered the reserves on Tuesday. This time, the fight was fairer. The visitors playe</p>
+        <div class="actu-pied"><time>15 octobre 2026 à 22h31</time>
+          <span class="type">Blog specialise Knicks (SB Nation)</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#a855f7;--c2:#3b0764">
+        <span class="actu-icone">🧠</span>
+        <span class="actu-sujet">Direction</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">ESPN</span>
+          <span class="notes" title="Media sportif international de reference">★★★★★</span>
+        </div>
+        <h3><a href="https://www.espn.com/nba/story/_/id/50190258/victor-wembanyama-spurs-dominate-annual-nba-gm-survey" target="_blank" rel="noopener">Victor Wembanyama et les Spurs dominent le sondage annuel des GM de la NBA </a></h3>
+        <p>An annual survey of NBA general managers projects the Spurs to win the NBA title this season, with Victor Wembanyama earning MVP and Defensive Player of the Year honors.</p>
+        <div class="actu-pied"><time>15 octobre 2026 à 19h48</time>
+          <span class="type">Media sportif international de reference</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#ef4444;--c2:#7f1d1d">
+        <span class="actu-icone">🏥</span>
+        <span class="actu-sujet">Santé</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">ESPN</span>
+          <span class="notes" title="Media sportif international de reference">★★★★★</span>
+        </div>
+        <h3><a href="https://www.espn.com/nba/story/_/id/50176718/nba-preseason-lakers-76ers-celtics-30-teams" target="_blank" rel="noopener">Ce que la présaison NBA nous a appris sur les Lakers, les 76ers, les Celtics et toutes les équipes </a></h3>
+        <p>With 2026-27 tipoff closing in, Ben Golliver shares the key takeaways that will shape the regular season.</p>
+        <div class="actu-pied"><time>15 octobre 2026 à 16h37</time>
+          <span class="type">Media sportif international de reference</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#1d428a;--c2:#f58426">
+        <span class="actu-icone">📰</span>
+        <span class="actu-sujet">Actualité</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">ESPN</span>
+          <span class="notes" title="Media sportif international de reference">★★★★★</span>
+        </div>
+        <h3><a href="https://www.espn.com/nba/story/_/id/50189623/amare-stoudemire-law-enforcement-academy-police" target="_blank" rel="noopener">Amar&#x27;e Stoudemire diplômé de l&#x27;académie des forces de l&#x27;ordre de Miami Dade </a></h3>
+        <p>Stoudemire will now train with the Miami-Dade Schools Police Department.</p>
+        <div class="actu-pied"><time>15 octobre 2026 à 16h09</time>
+          <span class="type">Media sportif international de reference</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#1d428a;--c2:#f58426">
+        <span class="actu-icone">📰</span>
+        <span class="actu-sujet">Actualité</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">Posting and Toasting</span>
+          <span class="notes" title="Blog specialise Knicks (SB Nation)">★★★☆☆</span>
+        </div>
+        <h3><a href="https://www.postingandtoasting.com/knicks-analysis/89850/all-the-dumb-moments-that-make-this-title-so-much-sweeter-part-iv-2010-20" target="_blank" rel="noopener">Ces moments absurdes qui rendent le titre encore plus savoureux : partie IV (2010-20) </a></h3>
+        <p>The home stretch is here. In less than a week, the Knicks will raise their long-awaited third championship banner on national television at Madison Square Garden. It’s a day 53 years in the making. As</p>
+        <div class="actu-pied"><time>15 octobre 2026 à 14h37</time>
+          <span class="type">Blog specialise Knicks (SB Nation)</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#22c55e;--c2:#14532d">
+        <span class="actu-icone">📊</span>
+        <span class="actu-sujet">Statistiques</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">Posting and Toasting</span>
+          <span class="notes" title="Blog specialise Knicks (SB Nation)">★★★☆☆</span>
+        </div>
+        <h3><a href="https://www.postingandtoasting.com/knicks-news/89996/jalen-brunson-named-best-leader-in-latest-nba-gm-poll" target="_blank" rel="noopener">Jalen Brunson élu « meilleur leader » dans le dernier sondage des GM de la NBA </a></h3>
+        <p>The annual NBA GM poll was released on Thursday, and we got a rare result. A Knick leads one of the 48 questions that were asked to the executives. It wasn’t too long ago that you’d need a magnifying </p>
+        <div class="actu-pied"><time>15 octobre 2026 à 12h35</time>
+          <span class="type">Blog specialise Knicks (SB Nation)</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#1d428a;--c2:#0c1e40">
+        <span class="actu-icone">🏀</span>
+        <span class="actu-sujet">Matchs</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">Posting and Toasting</span>
+          <span class="notes" title="Blog specialise Knicks (SB Nation)">★★★☆☆</span>
+        </div>
+        <h3><a href="https://www.postingandtoasting.com/knicks-game-previews/89982/preseason-game-preview-knicks-vs-raptors-october-15-2026" target="_blank" rel="noopener">Aperçu du match de présaison : Knicks - Raptors, 15 octobre 2026 </a></h3>
+        <p>The Knicks host the Raptors (2-1) Thursday at Madison Square Garden in the final preseason game for both.  Revenge? Do preseason scrimmages matter enough to call this a revenge game? Winning would be </p>
+        <div class="actu-pied"><time>15 octobre 2026 à 10h37</time>
+          <span class="type">Blog specialise Knicks (SB Nation)</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#1d428a;--c2:#0c1e40">
+        <span class="actu-icone">🏀</span>
+        <span class="actu-sujet">Matchs</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">Posting and Toasting</span>
+          <span class="notes" title="Blog specialise Knicks (SB Nation)">★★★☆☆</span>
+        </div>
+        <h3><a href="https://www.postingandtoasting.com/knicks-game-threads/89990/preseason-game-thread-knicks-vs-raptors-october-15" target="_blank" rel="noopener">Fil du match de présaison : Knicks - Raptors, 15 octobre 2026 </a></h3>
+        <p>The Knicks are back at the Garden tonight, wrapping up their preseason with a second rumble with the Raptors. On Tuesday in Toronto, the Canadian starters demolished the New York reserves by 50. In to</p>
+        <div class="actu-pied"><time>15 octobre 2026 à 10h34</time>
+          <span class="type">Blog specialise Knicks (SB Nation)</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#1d428a;--c2:#f58426">
+        <span class="actu-icone">📰</span>
+        <span class="actu-sujet">Actualité</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">Posting and Toasting</span>
+          <span class="notes" title="Blog specialise Knicks (SB Nation)">★★★☆☆</span>
+        </div>
+        <h3><a href="https://www.postingandtoasting.com/knicks-news/89957/knicks-bulletin-stay-diligent" target="_blank" rel="noopener">Bulletin des Knicks : « Restez appliqués » </a></h3>
+        <p>Four of the five Knicks starters didn’t board a plane north of the border, the fifth one didn’t play basketball on Tuesday, and it all showed badly. New York will host a preseason game for one final t</p>
+        <div class="actu-pied"><time>14 octobre 2026 à 10h02</time>
+          <span class="type">Blog specialise Knicks (SB Nation)</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#1d428a;--c2:#f58426">
+        <span class="actu-icone">📰</span>
+        <span class="actu-sujet">Actualité</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">Posting and Toasting</span>
+          <span class="notes" title="Blog specialise Knicks (SB Nation)">★★★☆☆</span>
+        </div>
+        <h3><a href="https://www.postingandtoasting.com/knicks-scores-results/89946/raptors-148-knicks-98-scenes-from-kawhis-return" target="_blank" rel="noopener">Raptors 148, Knicks 98 : les images du retour de Kawhi </a></h3>
+        <p>Having played last night at home, coach Mike Brown rested his starters tonight in Toronto. His opening lineup included Jose Alvarado, Miles McBride, Bruce Brown, Mohamed Diawara, and James Wiseman. Ac</p>
+        <div class="actu-pied"><time>13 octobre 2026 à 21h48</time>
+          <span class="type">Blog specialise Knicks (SB Nation)</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#1d428a;--c2:#f58426">
+        <span class="actu-icone">📰</span>
+        <span class="actu-sujet">Actualité</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">CBS Sports</span>
+          <span class="notes" title="Media sportif national americain">★★★★☆</span>
+        </div>
+        <h3><a href="https://www.cbssports.com/nba/news/nba-most-overrated-players-james-harden-paul-george/" target="_blank" rel="noopener">Les joueurs NBA les plus surcotés : James Harden et Paul George dans la liste, tout comme de jeunes All-Stars </a></h3>
+        <p>Who are the most overrated players in the NBA as a new season begins? Here&#x27;s what our staff thinks</p>
+        <div class="actu-pied"><time>
+               </time>
+          <span class="type">Media sportif national americain</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#ef4444;--c2:#7f1d1d">
+        <span class="actu-icone">🏥</span>
+        <span class="actu-sujet">Santé</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">CBS Sports</span>
+          <span class="notes" title="Media sportif national americain">★★★★☆</span>
+        </div>
+        <h3><a href="https://www.cbssports.com/nba/news/2026-27-nba-gm-survey-takeaways-victor-wembanyama-mvp-spurs-76ers-knicks/" target="_blank" rel="noopener">Sondage des GM NBA 2026-27 : les Spurs favoris au titre avec Wemby MVP, les dirigeants dubitatifs sur les 76ers </a></h3>
+        <p>After falling to the Knicks in the Finals last year, many of the league&#x27;s GMs believe the Spurs can take the next step</p>
+        <div class="actu-pied"><time>
+               </time>
+          <span class="type">Media sportif national americain</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#1d428a;--c2:#f58426">
+        <span class="actu-icone">📰</span>
+        <span class="actu-sujet">Actualité</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">CBS Sports</span>
+          <span class="notes" title="Media sportif national americain">★★★★☆</span>
+        </div>
+        <h3><a href="https://www.cbssports.com/nba/news/nba-mutual-option-contract-trend-second-apron/" target="_blank" rel="noopener">Comprendre la mode de l&#x27;option mutuelle en NBA : un moyen de contrer le redouté « second apron » ? </a></h3>
+        <p>After going unused for nearly 25 years, mutual options have quickly returned to the NBA landscape</p>
+        <div class="actu-pied"><time>
+               </time>
+          <span class="type">Media sportif national americain</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#1d428a;--c2:#f58426">
+        <span class="actu-icone">📰</span>
+        <span class="actu-sujet">Actualité</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">CBS Sports</span>
+          <span class="notes" title="Media sportif national americain">★★★★☆</span>
+        </div>
+        <h3><a href="https://www.cbssports.com/nba/news/nba-eastern-conference-over-under-win-total-predictions/" target="_blank" rel="noopener">Pronostics « plus ou moins » pour chaque équipe de l&#x27;Est : les Knicks et les 76ers surévalués ? Les Raptors prêts à monter ? </a></h3>
+        <p>After a wild offseason filled with impactful changes, the East is absolutely loaded</p>
+        <div class="actu-pied"><time>
+               </time>
+          <span class="type">Media sportif national americain</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#1d428a;--c2:#f58426">
+        <span class="actu-icone">📰</span>
+        <span class="actu-sujet">Actualité</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">CBS Sports</span>
+          <span class="notes" title="Media sportif national americain">★★★★☆</span>
+        </div>
+        <h3><a href="https://www.cbssports.com/nba/news/nba-eastern-conference-knicks-on-top-contenders-emerge/" target="_blank" rel="noopener">Les paliers de la Conférence Est : les Knicks en tête, mais de nouveaux prétendants émergent après une intersaison mouvementée </a></h3>
+        <p>The Knicks just won the title, but the loaded East will provide plenty of competition as they look to repeat</p>
+        <div class="actu-pied"><time>
+               </time>
+          <span class="type">Media sportif national americain</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#1d428a;--c2:#0c1e40">
+        <span class="actu-icone">🏀</span>
+        <span class="actu-sujet">Matchs</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">CBS Sports</span>
+          <span class="notes" title="Media sportif national americain">★★★★☆</span>
+        </div>
+        <h3><a href="https://www.cbssports.com/mlb/news/brewers-bash-champion-dodgers-to-brink-of-nlcs-sweep-cbs-sports-preseason-all-america-team-revealed/" target="_blank" rel="noopener">Les Brewers écrasent les Dodgers, champions en titre, au bord du balayage en NLCS ; l&#x27;équipe All-America de présaison de CBS Sports dévoilée </a></h3>
+        <p>Plus, A.J. Brown is one of several injured NFL stars would could return soon</p>
+        <div class="actu-pied"><time>
+               </time>
+          <span class="type">Media sportif national americain</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#1d428a;--c2:#f58426">
+        <span class="actu-icone">📰</span>
+        <span class="actu-sujet">Actualité</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">CBS Sports</span>
+          <span class="notes" title="Media sportif national americain">★★★★☆</span>
+        </div>
+        <h3><a href="https://www.cbssports.com/nba/news/nba-biggest-starting-lineup-questions-spurs-lakers-raptors-blazers-pelicans/" target="_blank" rel="noopener">Les cinq grandes questions de cinq majeur en NBA : trois arrières chez les Spurs ? Un duo Morant-Lillard à Portland ? </a></h3>
+        <p>Teams around the NBA have plenty of roster questions to address before Opening Night</p>
+        <div class="actu-pied"><time>
+               </time>
+          <span class="type">Media sportif national americain</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#ef4444;--c2:#7f1d1d">
+        <span class="actu-icone">🏥</span>
+        <span class="actu-sujet">Santé</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">CBS Sports</span>
+          <span class="notes" title="Media sportif national americain">★★★★☆</span>
+        </div>
+        <h3><a href="https://www.cbssports.com/nba/news/nba-western-conference-tiers-spurs-thunder-lakers/" target="_blank" rel="noopener">Les paliers de la Conférence Ouest : Spurs et Thunder dans un groupe à part... et les Lakers version nouveau visage ? </a></h3>
+        <p>Entering the 2026-27 season in the West, it&#x27;s the Spurs and Thunder, a big gap, and then everyone else</p>
+        <div class="actu-pied"><time>
+               </time>
+          <span class="type">Media sportif national americain</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#1d428a;--c2:#f58426">
+        <span class="actu-icone">📰</span>
+        <span class="actu-sujet">Actualité</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">ESPN</span>
+          <span class="notes" title="Media sportif international de reference">★★★★★</span>
+        </div>
+        <h3><a href="https://www.espn.com/nba/story/_/id/50196749/bucks-adjust-home-opener-avoid-world-series-conflict" target="_blank" rel="noopener">Les Bucks décalent leur match d&#x27;ouverture à domicile pour éviter un conflit d&#x27;horaire avec la World Series </a></h3>
+        <p>The Bucks are going to have an afternoon tipoff for their Oct. 23 home opener with the Bulls to avoid a direct conflict with Game 1 of the World Series.</p>
+        <div class="actu-pied"><time>16 octobre 2026 à 16h04</time>
+          <span class="type">Media sportif international de reference</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#1d428a;--c2:#f58426">
+        <span class="actu-icone">📰</span>
+        <span class="actu-sujet">Actualité</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">ESPN</span>
+          <span class="notes" title="Media sportif international de reference">★★★★★</span>
+        </div>
+        <h3><a href="https://www.espn.com/nba/story/_/id/50196498/nba-tells-sportsbooks-stop-certain-bets-restrict-parlays" target="_blank" rel="noopener">La NBA demande aux sites de paris de cesser certains paris et de limiter les combinés </a></h3>
+        <p>The NBA is prohibiting certain bets this season, including a player prop parlay used in recent scandals, according to a league memo to sportsbook partners.</p>
+        <div class="actu-pied"><time>16 octobre 2026 à 15h47</time>
+          <span class="type">Media sportif international de reference</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#f58426;--c2:#7c2d12">
+        <span class="actu-icone">🔄</span>
+        <span class="actu-sujet">Transferts & contrats</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">ESPN</span>
+          <span class="notes" title="Media sportif international de reference">★★★★★</span>
+        </div>
+        <h3><a href="https://www.espn.com/nba/story/_/id/50028196/2026-27-nba-buzz-latest-live-updates-news-intel-trades-deals" target="_blank" rel="noopener">Les rumeurs de la présaison NBA : transferts, infos et indiscrétions </a></h3>
+        <p>The NBA regular season is less than a week away, and we&#x27;re tracking all the news, deals, and trades across the league.</p>
+        <div class="actu-pied"><time>16 octobre 2026 à 15h31</time>
+          <span class="type">Media sportif international de reference</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#22c55e;--c2:#14532d">
+        <span class="actu-icone">📊</span>
+        <span class="actu-sujet">Statistiques</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">ESPN</span>
+          <span class="notes" title="Media sportif international de reference">★★★★★</span>
+        </div>
+        <h3><a href="https://www.espn.com/fantasy/basketball/story/_/id/50193261/fantasy-basketball-island-bold-prediction-draft-advice" target="_blank" rel="noopener">Seul sur une île du fantasy basketball : « Un joueur sur qui j&#x27;ai un avis différent » </a></h3>
+        <p>The fantasy basketball crew identifies one player they feel differently about than seemingly everyone else.</p>
+        <div class="actu-pied"><time>16 octobre 2026 à 14h51</time>
+          <span class="type">Media sportif international de reference</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#1d428a;--c2:#f58426">
+        <span class="actu-icone">📰</span>
+        <span class="actu-sujet">Actualité</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">ESPN</span>
+          <span class="notes" title="Media sportif international de reference">★★★★★</span>
+        </div>
+        <h3><a href="https://www.espn.com/nba/story/_/id/50182801/jimmy-butler-acl-injury-return-warriors-title" target="_blank" rel="noopener">Jimmy Butler peut-il revenir à temps pour relancer le dernier chapitre de Steph Curry ? </a></h3>
+        <p>After a quiet offseason, the Warriors know Jimmy Butler&#x27;s return is their best hope of reaching the playoffs.</p>
+        <div class="actu-pied"><time>16 octobre 2026 à 11h07</time>
+          <span class="type">Media sportif international de reference</span></div>
+      </div>
+    </article><article class="actu">
+      <div class="actu-visuel" style="--c1:#1d428a;--c2:#0c1e40">
+        <span class="actu-icone">🏀</span>
+        <span class="actu-sujet">Matchs</span>
+        <img class="actu-filigrane" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      </div>
+      <div class="actu-corps">
+        <div class="actu-tete">
+          <span class="source">ESPN</span>
+          <span class="notes" title="Media sportif international de reference">★★★★★</span>
+        </div>
+        <h3><a href="https://www.espn.com/nba/story/_/id/50190888/preseason-intel-expansion-seattle-towns-extensions" target="_blank" rel="noopener">Infos NBA : point sur l&#x27;expansion à Seattle, la saga de la prolongation de Towns et le reste de la présaison </a></h3>
+        <p>What storylines dominated preseason? Brian Windhorst shares intel on Seattle expansion, extension drama in New York and a potential trade decision in Orlando.</p>
+        <div class="actu-pied"><time>16 octobre 2026 à 11h04</time>
+          <span class="type">Media sportif international de reference</span></div>
+      </div>
+    </article></div>
+</section>
+
+<section id="classement">
+  <h2><span class="barre"></span>🏆 Classement — Conférence Est</h2>
+  <p class="st2">Bilan de la saison — source : ESPN</p>
+  <ul class="cl"><li class="cl">
+      <span class="cl-rang">1</span>
+      <img class="cl-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/det.png" alt="">
+      <span class="cl-nom">Detroit Pistons</span>
+      <span class="cl-barre"><i style="width:100.0%"></i></span>
+      <span class="cl-bilan">60-22</span>
+      <span class="cl-pct">.732</span></li><li class="cl">
+      <span class="cl-rang">2</span>
+      <img class="cl-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png" alt="">
+      <span class="cl-nom">Boston Celtics</span>
+      <span class="cl-barre"><i style="width:93.3%"></i></span>
+      <span class="cl-bilan">56-26</span>
+      <span class="cl-pct">.683</span></li><li class="cl knick">
+      <span class="cl-rang">3</span>
+      <img class="cl-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="">
+      <span class="cl-nom">New York Knicks</span>
+      <span class="cl-barre"><i style="width:88.3%"></i></span>
+      <span class="cl-bilan">53-29</span>
+      <span class="cl-pct">.646</span></li><li class="cl">
+      <span class="cl-rang">4</span>
+      <img class="cl-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/cle.png" alt="">
+      <span class="cl-nom">Cleveland Cavaliers</span>
+      <span class="cl-barre"><i style="width:86.6%"></i></span>
+      <span class="cl-bilan">52-30</span>
+      <span class="cl-pct">.634</span></li><li class="cl">
+      <span class="cl-rang">5</span>
+      <img class="cl-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/atl.png" alt="">
+      <span class="cl-nom">Atlanta Hawks</span>
+      <span class="cl-barre"><i style="width:76.6%"></i></span>
+      <span class="cl-bilan">46-36</span>
+      <span class="cl-pct">.561</span></li><li class="cl">
+      <span class="cl-rang">6</span>
+      <img class="cl-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/tor.png" alt="">
+      <span class="cl-nom">Toronto Raptors</span>
+      <span class="cl-barre"><i style="width:76.6%"></i></span>
+      <span class="cl-bilan">46-36</span>
+      <span class="cl-pct">.561</span></li><li class="cl">
+      <span class="cl-rang">7</span>
+      <img class="cl-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/phi.png" alt="">
+      <span class="cl-nom">Philadelphia 76ers</span>
+      <span class="cl-barre"><i style="width:75.0%"></i></span>
+      <span class="cl-bilan">45-37</span>
+      <span class="cl-pct">.549</span></li><li class="cl">
+      <span class="cl-rang">8</span>
+      <img class="cl-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/orl.png" alt="">
+      <span class="cl-nom">Orlando Magic</span>
+      <span class="cl-barre"><i style="width:75.0%"></i></span>
+      <span class="cl-bilan">45-37</span>
+      <span class="cl-pct">.549</span></li><li class="cl">
+      <span class="cl-rang">9</span>
+      <img class="cl-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/cha.png" alt="">
+      <span class="cl-nom">Charlotte Hornets</span>
+      <span class="cl-barre"><i style="width:73.4%"></i></span>
+      <span class="cl-bilan">44-38</span>
+      <span class="cl-pct">.537</span></li><li class="cl">
+      <span class="cl-rang">10</span>
+      <img class="cl-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="">
+      <span class="cl-nom">Miami Heat</span>
+      <span class="cl-barre"><i style="width:71.6%"></i></span>
+      <span class="cl-bilan">43-39</span>
+      <span class="cl-pct">.524</span></li><li class="cl">
+      <span class="cl-rang">11</span>
+      <img class="cl-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/mil.png" alt="">
+      <span class="cl-nom">Milwaukee Bucks</span>
+      <span class="cl-barre"><i style="width:53.3%"></i></span>
+      <span class="cl-bilan">32-50</span>
+      <span class="cl-pct">.390</span></li><li class="cl">
+      <span class="cl-rang">12</span>
+      <img class="cl-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png" alt="">
+      <span class="cl-nom">Chicago Bulls</span>
+      <span class="cl-barre"><i style="width:51.6%"></i></span>
+      <span class="cl-bilan">31-51</span>
+      <span class="cl-pct">.378</span></li><li class="cl">
+      <span class="cl-rang">13</span>
+      <img class="cl-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/bkn.png" alt="">
+      <span class="cl-nom">Brooklyn Nets</span>
+      <span class="cl-barre"><i style="width:33.3%"></i></span>
+      <span class="cl-bilan">20-62</span>
+      <span class="cl-pct">.244</span></li><li class="cl">
+      <span class="cl-rang">14</span>
+      <img class="cl-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/ind.png" alt="">
+      <span class="cl-nom">Indiana Pacers</span>
+      <span class="cl-barre"><i style="width:31.7%"></i></span>
+      <span class="cl-bilan">19-63</span>
+      <span class="cl-pct">.232</span></li><li class="cl">
+      <span class="cl-rang">15</span>
+      <img class="cl-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/wsh.png" alt="">
+      <span class="cl-nom">Washington Wizards</span>
+      <span class="cl-barre"><i style="width:28.3%"></i></span>
+      <span class="cl-bilan">17-65</span>
+      <span class="cl-pct">.207</span></li></ul>
+</section>
+
+<section id="effectif">
+  <h2><span class="barre"></span>👥 Effectif 21 joueurs</h2>
+  <p class="st2">Roster officiel — source : ESPN</p>
+  <div class="equipe"><article class="j">
+      <div class="j-photo"><img src="https://a.espncdn.com/i/headshots/nba/players/full/6585.png" alt="Andre Drummond" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="init" style="display:none">AD</span></div><div class="j-num">0</div>
+      <div class="j-corps"><h4>Andre Drummond</h4>
+        <p class="j-poste">Pivot</p>
+        <ul class="j-infos"><li>6&#x27; 11&quot;</li><li>33 ans</li>
+          <li>UConn</li>
+          <li>15 an(s) NBA</li>
+        </ul></div></article><article class="j">
+      <div class="j-photo"><img src="https://a.espncdn.com/i/headshots/nba/players/full/4432808.png" alt="James Wiseman" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="init" style="display:none">JW</span></div><div class="j-num">35</div>
+      <div class="j-corps"><h4>James Wiseman</h4>
+        <p class="j-poste">Pivot</p>
+        <ul class="j-infos"><li>6&#x27; 11&quot;</li><li>25 ans</li>
+          <li>Memphis</li>
+          <li>7 an(s) NBA</li>
+        </ul></div></article><article class="j">
+      <div class="j-photo"><img src="https://a.espncdn.com/i/headshots/nba/players/full/3136195.png" alt="Karl-Anthony Towns" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="init" style="display:none">KT</span></div><div class="j-num">32</div>
+      <div class="j-corps"><h4>Karl-Anthony Towns</h4>
+        <p class="j-poste">Pivot</p>
+        <ul class="j-infos"><li>7&#x27; 0&quot;</li><li>30 ans</li>
+          <li>Kentucky</li>
+          <li>12 an(s) NBA</li>
+        </ul></div></article><article class="j">
+      <div class="j-photo"><img src="https://a.espncdn.com/i/headshots/nba/players/full/4065673.png" alt="Tony Bradley" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="init" style="display:none">TB</span></div><div class="j-num">18</div>
+      <div class="j-corps"><h4>Tony Bradley</h4>
+        <p class="j-poste">Pivot</p>
+        <ul class="j-infos"><li>6&#x27; 10&quot;</li><li>28 ans</li>
+          <li>North Carolina</li>
+          <li>9 an(s) NBA</li>
+        </ul></div></article><article class="j">
+      <div class="j-photo"><img src="https://a.espncdn.com/i/headshots/nba/players/full/3914285.png" alt="Drew Eubanks" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="init" style="display:none">DE</span></div><div class="j-num">19</div>
+      <div class="j-corps"><h4>Drew Eubanks</h4>
+        <p class="j-poste">Ailier</p>
+        <ul class="j-infos"><li>6&#x27; 10&quot;</li><li>29 ans</li>
+          <li>Oregon State</li>
+          <li>9 an(s) NBA</li>
+        </ul></div></article><article class="j">
+      <div class="j-photo"><img src="https://a.espncdn.com/i/headshots/nba/players/full/5289900.png" alt="Mohamed Diawara" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="init" style="display:none">MD</span></div><div class="j-num">51</div>
+      <div class="j-corps"><h4>Mohamed Diawara 🇫🇷</h4>
+        <p class="j-poste">Ailier</p>
+        <ul class="j-infos"><li>6&#x27; 9&quot;</li><li>21 ans</li>
+          
+          <li>2 an(s) NBA</li>
+        </ul></div></article><article class="j">
+      <div class="j-photo"><img src="https://a.espncdn.com/i/headshots/nba/players/full/3934719.png" alt="OG Anunoby" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="init" style="display:none">OA</span></div><div class="j-num">8</div>
+      <div class="j-corps"><h4>OG Anunoby</h4>
+        <p class="j-poste">Ailier</p>
+        <ul class="j-infos"><li>6&#x27; 7&quot;</li><li>29 ans</li>
+          <li>Indiana</li>
+          <li>10 an(s) NBA</li>
+        </ul></div></article><article class="j">
+      <div class="j-photo"><img src="https://a.espncdn.com/i/headshots/nba/players/full/5211983.png" alt="Pacome Dadiet" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="init" style="display:none">PD</span></div><div class="j-num">4</div>
+      <div class="j-corps"><h4>Pacome Dadiet 🇫🇷</h4>
+        <p class="j-poste">Ailier</p>
+        <ul class="j-infos"><li>6&#x27; 9&quot;</li><li>21 ans</li>
+          
+          <li>3 an(s) NBA</li>
+        </ul></div></article><article class="j">
+      <div class="j-photo"><img src="https://a.espncdn.com/i/headshots/nba/players/full/4838721.png" alt="Tyler Nickel" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="init" style="display:none">TN</span></div><div class="j-num">55</div>
+      <div class="j-corps"><h4>Tyler Nickel</h4>
+        <p class="j-poste">Ailier</p>
+        <ul class="j-infos"><li>6&#x27; 8&quot;</li><li>23 ans</li>
+          <li>Vanderbilt</li>
+          <li>Débutant</li>
+        </ul></div></article><article class="j">
+      <div class="j-photo"><img src="https://a.espncdn.com/i/headshots/nba/players/full/4065670.png" alt="Bruce Brown" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="init" style="display:none">BB</span></div><div class="j-num">1</div>
+      <div class="j-corps"><h4>Bruce Brown</h4>
+        <p class="j-poste">Meneur / Arrière</p>
+        <ul class="j-infos"><li>6&#x27; 4&quot;</li><li>30 ans</li>
+          <li>Miami</li>
+          <li>9 an(s) NBA</li>
+        </ul></div></article><article class="j">
+      <div class="j-photo"><span class="init">JA</span></div><div class="j-num">14</div>
+      <div class="j-corps"><h4>Jaden Akins</h4>
+        <p class="j-poste">Meneur / Arrière</p>
+        <ul class="j-infos"><li>6&#x27; 4&quot;</li><li>23 ans</li>
+          <li>Michigan State</li>
+          <li>Débutant</li>
+        </ul></div></article><article class="j">
+      <div class="j-photo"><img src="https://a.espncdn.com/i/headshots/nba/players/full/3934672.png" alt="Jalen Brunson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="init" style="display:none">JB</span></div><div class="j-num">11</div>
+      <div class="j-corps"><h4>Jalen Brunson</h4>
+        <p class="j-poste">Meneur / Arrière</p>
+        <ul class="j-infos"><li>6&#x27; 2&quot;</li><li>30 ans</li>
+          <li>Villanova</li>
+          <li>9 an(s) NBA</li>
+        </ul></div></article><article class="j">
+      <div class="j-photo"><img src="https://a.espncdn.com/i/headshots/nba/players/full/2528426.png" alt="Jordan Clarkson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="init" style="display:none">JC</span></div><div class="j-num">00</div>
+      <div class="j-corps"><h4>Jordan Clarkson</h4>
+        <p class="j-poste">Meneur / Arrière</p>
+        <ul class="j-infos"><li>6&#x27; 5&quot;</li><li>34 ans</li>
+          <li>Missouri</li>
+          <li>13 an(s) NBA</li>
+        </ul></div></article><article class="j">
+      <div class="j-photo"><img src="https://a.espncdn.com/i/headshots/nba/players/full/4277869.png" alt="Jose Alvarado" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="init" style="display:none">JA</span></div><div class="j-num">5</div>
+      <div class="j-corps"><h4>Jose Alvarado</h4>
+        <p class="j-poste">Meneur / Arrière</p>
+        <ul class="j-infos"><li>6&#x27; 0&quot;</li><li>28 ans</li>
+          <li>Georgia Tech</li>
+          <li>6 an(s) NBA</li>
+        </ul></div></article><article class="j">
+      <div class="j-photo"><img src="https://a.espncdn.com/i/headshots/nba/players/full/3062679.png" alt="Josh Hart" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="init" style="display:none">JH</span></div><div class="j-num">3</div>
+      <div class="j-corps"><h4>Josh Hart</h4>
+        <p class="j-poste">Meneur / Arrière</p>
+        <ul class="j-infos"><li>6&#x27; 5&quot;</li><li>31 ans</li>
+          <li>Villanova</li>
+          <li>10 an(s) NBA</li>
+        </ul></div></article><article class="j">
+      <div class="j-photo"><img src="https://a.espncdn.com/i/headshots/nba/players/full/4411057.png" alt="Kevin McCullar Jr." loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="init" style="display:none">KM</span></div><div class="j-num">9</div>
+      <div class="j-corps"><h4>Kevin McCullar Jr.</h4>
+        <p class="j-poste">Meneur / Arrière</p>
+        <ul class="j-infos"><li>6&#x27; 6&quot;</li><li>25 ans</li>
+          <li>Kansas</li>
+          <li>3 an(s) NBA</li>
+        </ul></div></article><article class="j">
+      <div class="j-photo"><img src="https://a.espncdn.com/i/headshots/nba/players/full/3914044.png" alt="Landry Shamet" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="init" style="display:none">LS</span></div><div class="j-num">44</div>
+      <div class="j-corps"><h4>Landry Shamet</h4>
+        <p class="j-poste">Meneur / Arrière</p>
+        <ul class="j-infos"><li>6&#x27; 5&quot;</li><li>29 ans</li>
+          <li>Wichita State</li>
+          <li>9 an(s) NBA</li>
+        </ul></div></article><article class="j">
+      <div class="j-photo"><img src="https://a.espncdn.com/i/headshots/nba/players/full/3147657.png" alt="Mikal Bridges" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="init" style="display:none">MB</span></div><div class="j-num">25</div>
+      <div class="j-corps"><h4>Mikal Bridges</h4>
+        <p class="j-poste">Meneur / Arrière</p>
+        <ul class="j-infos"><li>6&#x27; 6&quot;</li><li>30 ans</li>
+          <li>Villanova</li>
+          <li>9 an(s) NBA</li>
+        </ul></div></article><article class="j">
+      <div class="j-photo"><img src="https://a.espncdn.com/i/headshots/nba/players/full/4431823.png" alt="Miles McBride" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="init" style="display:none">MM</span></div><div class="j-num">2</div>
+      <div class="j-corps"><h4>Miles McBride</h4>
+        <p class="j-poste">Meneur / Arrière</p>
+        <ul class="j-infos"><li>6&#x27; 2&quot;</li><li>26 ans</li>
+          <li>West Virginia</li>
+          <li>6 an(s) NBA</li>
+        </ul></div></article><article class="j">
+      <div class="j-photo"><img src="https://a.espncdn.com/i/headshots/nba/players/full/4397018.png" alt="Ochai Agbaji" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="init" style="display:none">OA</span></div><div class="j-num">30</div>
+      <div class="j-corps"><h4>Ochai Agbaji</h4>
+        <p class="j-poste">Meneur / Arrière</p>
+        <ul class="j-infos"><li>6&#x27; 5&quot;</li><li>26 ans</li>
+          <li>Kansas</li>
+          <li>5 an(s) NBA</li>
+        </ul></div></article><article class="j">
+      <div class="j-photo"><img src="https://a.espncdn.com/i/headshots/nba/players/full/4433225.png" alt="Tyler Kolek" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="init" style="display:none">TK</span></div><div class="j-num">13</div>
+      <div class="j-corps"><h4>Tyler Kolek</h4>
+        <p class="j-poste">Meneur / Arrière</p>
+        <ul class="j-infos"><li>6&#x27; 2&quot;</li><li>25 ans</li>
+          <li>Marquette</li>
+          <li>3 an(s) NBA</li>
+        </ul></div></article></div>
+</section>
+
+<section id="sante">
+  <h2><span class="barre"></span>🏥 Santé des joueurs</h2>
+  <p class="st2">Rapport de blessures officiel de la ligue — source : ESPN</p>
+  <table><thead><tr><th>Joueur</th><th>Statut</th><th>Type / Zone</th><th>Détail</th><th>Retour</th></tr></thead>
+  <tbody><tr><td colspan="5" class="aucune">✅ Aucun joueur des Knicks déclaré blessé dans le rapport officiel de la ligue.</td></tr></tbody></table>
+</section>
+
+<section id="insiders">
+  <h2><span class="barre"></span>🎙️ Les insiders de la franchise</h2>
+  <p class="st2">Les journalistes spécialisés — la source la plus précieuse. Leurs tweets sont
+     intégrés directement (widget officiel X, 100 % autorisé).</p>
+  <div class="tl-grid"><div class="tl">
+  <div class="tl-tete"><span class="tl-nom">Shams Charania</span>
+    <span class="tl-media">ESPN</span></div>
+  <a class="twitter-timeline" data-height="400" data-theme="dark" data-chrome="noheader nofooter noborders transparent"
+     href="https://twitter.com/ShamsCharania?ref_src=twsrc%5Etfw">Tweets de Shams Charania</a>
+</div><div class="tl">
+  <div class="tl-tete"><span class="tl-nom">Ian Begley</span>
+    <span class="tl-media">SNY</span></div>
+  <a class="twitter-timeline" data-height="400" data-theme="dark" data-chrome="noheader nofooter noborders transparent"
+     href="https://twitter.com/IanBegley?ref_src=twsrc%5Etfw">Tweets de Ian Begley</a>
+</div><div class="tl">
+  <div class="tl-tete"><span class="tl-nom">Fred Katz</span>
+    <span class="tl-media">The Athletic</span></div>
+  <a class="twitter-timeline" data-height="400" data-theme="dark" data-chrome="noheader nofooter noborders transparent"
+     href="https://twitter.com/FredKatz?ref_src=twsrc%5Etfw">Tweets de Fred Katz</a>
+</div></div>
+  <div class="ins-grid"><article class="insider">
+  <div class="ins-tete"><span class="ins-nom">Shams Charania</span>
+    <span class="ins-notes">★★★★★</span></div>
+  <div class="ins-media">ESPN <span class="ins-spec">NBA</span></div>
+  <p>Le journaliste NBA n°1 mondial. Annonce transferts et signatures AVANT tout le monde.</p>
+  <a class="ins-x" href="https://x.com/ShamsCharania" target="_blank" rel="noopener">𝕏 @ShamsCharania</a>
+</article><article class="insider">
+  <div class="ins-tete"><span class="ins-nom">Ian Begley</span>
+    <span class="ins-notes">★★★★★</span></div>
+  <div class="ins-media">SNY <span class="ins-spec">New York Knicks</span></div>
+  <p>LA référence sur les Knicks. Le plus proche du vestiaire new-yorkais.</p>
+  <a class="ins-x" href="https://x.com/IanBegley" target="_blank" rel="noopener">𝕏 @IanBegley</a>
+</article><article class="insider">
+  <div class="ins-tete"><span class="ins-nom">Fred Katz</span>
+    <span class="ins-notes">★★★★★</span></div>
+  <div class="ins-media">The Athletic <span class="ins-spec">New York Knicks</span></div>
+  <p>Analyse approfondie des Knicks : tactique, salaires, coulisses.</p>
+  <a class="ins-x" href="https://x.com/FredKatz" target="_blank" rel="noopener">𝕏 @FredKatz</a>
+</article><article class="insider">
+  <div class="ins-tete"><span class="ins-nom">Steve Popper</span>
+    <span class="ins-notes">★★★★☆</span></div>
+  <div class="ins-media">Newsday <span class="ins-spec">New York Knicks</span></div>
+  <p>Couvre les Knicks au quotidien depuis plus de 20 ans.</p>
+  <a class="ins-x" href="https://x.com/StevePopper" target="_blank" rel="noopener">𝕏 @StevePopper</a>
+</article><article class="insider">
+  <div class="ins-tete"><span class="ins-nom">Stefan Bondy</span>
+    <span class="ins-notes">★★★★☆</span></div>
+  <div class="ins-media">NY Daily News <span class="ins-spec">New York Knicks</span></div>
+  <p>Bon sur les coulisses et les tensions internes du club.</p>
+  <a class="ins-x" href="https://x.com/SBondyNYDN" target="_blank" rel="noopener">𝕏 @SBondyNYDN</a>
+</article><article class="insider">
+  <div class="ins-tete"><span class="ins-nom">Tommy Beer</span>
+    <span class="ins-notes">★★★★☆</span></div>
+  <div class="ins-media">Analyste indépendant <span class="ins-spec">Knicks (stats)</span></div>
+  <p>Spécialiste des statistiques et de la masse salariale des Knicks.</p>
+  <a class="ins-x" href="https://x.com/TommyBeer" target="_blank" rel="noopener">𝕏 @TommyBeer</a>
+</article><article class="insider">
+  <div class="ins-tete"><span class="ins-nom">Zach Lowe</span>
+    <span class="ins-notes">★★★★★</span></div>
+  <div class="ins-media">The Ringer <span class="ins-spec">NBA (analyse)</span></div>
+  <p>L&#x27;analyse tactique la plus respectée de la planète basket.</p>
+  <a class="ins-x" href="https://x.com/ZachLowe_NBA" target="_blank" rel="noopener">𝕏 @ZachLowe_NBA</a>
+</article></div>
+</section>
+
+<section id="matchs">
+  <h2><span class="barre"></span>📅 Matchs</h2>
+  <p class="st2">Calendrier et résultats — source : ESPN</p>
+  <ul class="matchs" style="list-style:none;display:grid;gap:11px"><li class="match knick"><div class="eq">Philadelphia 76ers </div>
+      <span class="vs">vs</span>
+      <div class="eq"> New York Knicks</div>
+      <div class="mstatut"></div></li><li class="match knick"><div class="eq">New York Knicks </div>
+      <span class="vs">vs</span>
+      <div class="eq"> Washington Wizards</div>
+      <div class="mstatut"></div></li><li class="match knick"><div class="eq">New York Knicks </div>
+      <span class="vs">vs</span>
+      <div class="eq"> Minnesota Timberwolves</div>
+      <div class="mstatut"></div></li><li class="match knick"><div class="eq">Toronto Raptors </div>
+      <span class="vs">vs</span>
+      <div class="eq"> New York Knicks</div>
+      <div class="mstatut"></div></li><li class="match knick"><div class="eq">New York Knicks </div>
+      <span class="vs">vs</span>
+      <div class="eq"> Toronto Raptors</div>
+      <div class="mstatut"></div></li></ul>
+</section>
+
+<section id="sources">
+  <h2><span class="barre"></span>🎯 Fiabilité des sources</h2>
+  <p class="st2">Chaque source est notée sur 5 — la note reflète la rigueur et la vérification des faits</p>
+  <table><thead><tr><th>Source</th><th>Fiabilité</th><th>Nature</th><th>Articles</th></tr></thead><tbody><tr><td class="nom">ESPN</td><td class="st">★★★★★</td><td>Media sportif international de reference</td><td class="nb">11</td></tr>
+<tr><td class="nom">CBS Sports</td><td class="st">★★★★☆</td><td>Media sportif national americain</td><td class="nb">8</td></tr>
+<tr><td class="nom">Posting and Toasting</td><td class="st">★★★☆☆</td><td>Blog specialise Knicks (SB Nation)</td><td class="nb">8</td></tr></tbody></table>
+  <div class="methode">
+    <h3>Comment lire ces notes ?</h3>
+    <ul>
+      <li>★★★★★ — Source de référence : vérification systématique, journalistes spécialisés</li>
+      <li>★★★★ — Média national reconnu, bonne rigueur</li>
+      <li>★★★ — Fiable mais à recouper (presse locale, blog, agrégateur)</li>
+      <li>Les articles non traduits portent le badge <b>EN</b> — jamais caché</li>
+      <li><b>Les insiders</b> : privilégiez-les pour les transferts — ils publient avant les médias</li>
+      <li><b>Visuels</b> : 100 % créés par nous (dégradés + icônes + logo). Aucune image protégée n'est utilisée.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <strong>Knicks France</strong> — site non officiel, à but informatif. Aucun lien avec la NBA ou les New York Knicks.<br>
+  Sources : ESPN · CBS Sports · Posting and Toasting · Google News — citées et notées ci-dessus.<br>
+  Images : visuels originaux uniquement · logo utilisé à titre informatif. Traductions automatiques — se référer à l'original.<br>
+  Données collectées le 16 octobre 2026 à 16h09.
+</footer>
+</div>
+<style>
+.match{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;background:#ffffff08;border:1px solid #ffffff12;border-radius:15px;padding:16px 20px}
+.match.knick{border-color:#f5842644;background:#f584260d}
+.eq{font-weight:650;font-size:15px;display:flex;align-items:center;gap:9px}
+.eq:last-of-type{justify-content:flex-end}
+.sc{display:inline-grid;place-items:center;min-width:34px;height:34px;border-radius:9px;background:var(--bleu);font-weight:800;padding:0 8px}
+.vs{color:#ffffff45;font-size:13px;font-weight:600}
+.mstatut{grid-column:1/-1;text-align:center;font-size:11px;color:#ffffff4d;text-transform:uppercase;letter-spacing:.1em;padding-top:5px;border-top:1px solid #ffffff0d;margin-top:5px}
+</style>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>
+</html>
